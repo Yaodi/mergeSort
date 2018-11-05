@@ -29,8 +29,14 @@
 describe("Split Array", function() {
   it("handles an array of length 11", function() {
     expect(split([5, 6, 7, 1, 2, 8, 3, 4, 9, 10, 11])).toEqual([
-      [5, 6, 7, 1, 2],
-      [8, 3, 4, 9, 10, 11]
+      [5, 6, 7, 1, 2, 8],
+      [3, 4, 9, 10, 11]
     ]);
+  });
+});
+
+describe("Merge function", function() {
+  it("is able to merge two sorted arrays into one sorted array", function() {
+    expect(merge([1, 3, 5], [2, 4, 6])).toEqual([1, 2, 3, 4, 5, 6]);
   });
 });
