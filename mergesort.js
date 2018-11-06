@@ -1,5 +1,5 @@
 const split = array => {
-  if (array.length < 2) return array;
+  if (array.length === 0) return [[], []];
   let firstHalf = array.slice(0, Math.round(array.length / 2));
   let secondHalf = array.slice(Math.round(array.length / 2));
 
@@ -11,14 +11,11 @@ const merge = (arr1, arr2) => {
   while (arr1[0] || arr2[0]) {
     if (!arr1[0]) {
       finalArr.push(arr2.shift());
-    }
-    else if (!arr2[0]) {
+    } else if (!arr2[0]) {
       finalArr.push(arr1.shift());
-    }
-    else if (arr1[0] < arr2[0]) {
+    } else if (arr1[0] < arr2[0]) {
       finalArr.push(arr1.shift());
-    }
-    else {
+    } else {
       finalArr.push(arr2.shift());
     }
   }
@@ -26,13 +23,10 @@ const merge = (arr1, arr2) => {
 };
 
 const mergeSort = array => {
-  if (array.length === 1) return array;
+  if (array.length < 2) return array;
 
   let splitArr = split(array);
   let arr1 = splitArr[0];
   let arr2 = splitArr[1];
-  let merged = merge(arr1, arr2);
-  return merged;
-}
-
-let merged
+  return merge(mergeSort(arr1), mergeSort(arr2));
+};
