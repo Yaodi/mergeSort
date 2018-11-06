@@ -30,3 +30,5 @@ const mergeSort = array => {
   let arr2 = splitArr[1];
   return merge(mergeSort(arr1), mergeSort(arr2));
 };
+
+//nothing has changed
